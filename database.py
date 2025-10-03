@@ -2,14 +2,18 @@
 
 import sqlite3
 
-def get_db_connection():
-    """Establishes a connection to the SQLite database."""
+def get_db_connection():    
+
+    # connect to the sqlite db
+    
     conn = sqlite3.connect('nim_analysis.db')
     conn.row_factory = sqlite3.Row
     return conn
 
 def setup_database():
-    """Creates the game_states table if it doesn't exist."""
+
+    # creating table if it dne
+    
     conn = get_db_connection()
     conn.execute('''
         CREATE TABLE IF NOT EXISTS game_states (
@@ -25,15 +29,9 @@ def setup_database():
     conn.close()
 
 def store_game_analysis(state, nim_sum, is_winning, optimal_move):
-    """
-    Stores the analysis of a game state in the database.
 
-    Args:
-        state (list of int): The game state (heap sizes).
-        nim_sum (int): The calculated Nim-sum.
-        is_winning (bool): Whether the position is winning.
-        optimal_move (tuple): The optimal move (heap_index, items_to_take).
-    """
+    # store current game info into db
+    
     conn = get_db_connection()
     state_str = str(state)
     optimal_move_str = str(optimal_move) if optimal_move[0] is not None else "N/A"
@@ -50,15 +48,9 @@ def store_game_analysis(state, nim_sum, is_winning, optimal_move):
         conn.close()
 
 def query_state(state):
-    """
-    Queries the database for a previously analyzed game state.
 
-    Args:
-        state (list of int): The game state to query.
-
-    Returns:
-        dict: A dictionary with the analysis if found, otherwise None.
-    """
+    # checking db if state already exists
+    
     conn = get_db_connection()
     cursor = conn.cursor()
     state_str = str(state)
