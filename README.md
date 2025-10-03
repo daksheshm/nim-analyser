@@ -1,6 +1,4 @@
-Of course! Here is a comprehensive README file for the `nim-analyser` repository. It explains the project, its usage, and provides a detailed breakdown of how it uses the Sprague-Grundy theorem to solve the game.
 
----
 
 # Nim Analyser
 
