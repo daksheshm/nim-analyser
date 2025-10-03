@@ -6,12 +6,9 @@ from database import setup_database, store_game_analysis, query_state
 from utils import format_analysis
 
 def analyze_and_store(heaps):
-    """
-    Analyzes the game state and stores the result in the database.
+    # analyze game and store result in db
 
-    Args:
-        heaps (list of int): The sizes of the heaps.
-    """
+    
     nim_sum = calculate_nim_sum(heaps)
     winning_pos = is_winning_position(heaps)
     optimal_move = get_optimal_move(heaps)
@@ -21,7 +18,8 @@ def analyze_and_store(heaps):
     return nim_sum, winning_pos, optimal_move
 
 def main():
-    """Main function to run the Nim Game Analyser."""
+
+    
     parser = argparse.ArgumentParser(description="NIM Game Analyser")
     parser.add_argument('heaps', metavar='H', type=int, nargs='+',
                         help='An integer for the size of each heap.')
