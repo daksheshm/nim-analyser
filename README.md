@@ -81,41 +81,6 @@ Run the script from your terminal, providing the sizes of the piles as command-l
 python nim_analyser.py <pile1_size> <pile2_size> ...
 ```
 
-### Examples
-
-#### Example 1: A Winning Position
-
-Let's analyze a game with two piles of size 7 and 8.
-
-```bash
-$ python nim_analyser.py 7 8
-
-Initial Piles: [7, 8]
-g-values: [g(7)=2, g(8)=1]
-Nim-Sum (2 ^ 1): 3
-
-This is a Winning Position.
-Searching for a winning move...
-A winning move is to split pile 7 into piles of size 3 and 4.
-New state: [8, 3, 4]
-```
-The script correctly identifies this as a winning position and suggests a move that will leave the opponent in a state with a Nim-Sum of 0.
-
-#### Example 2: A Losing Position
-
-A single pile of size 5 is a losing position.
-
-```bash
-$ python nim_analyser.py 5
-
-Initial Piles: [5]
-g-values: [g(5)=0]
-Nim-Sum (0): 0
-
-This is a Losing Position.
-```
-Any move you make from this position will result in a winning position for your opponent.
-
 ## Code Breakdown
 
 -   **`mex(s)`**: A helper function that takes a set of integers `s` and returns the Minimum Excluded non-negative integer.
