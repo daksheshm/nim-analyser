@@ -1,7 +1,6 @@
 # utils.py
 
 def format_analysis(state, nim_sum, is_winning, optimal_move):
-    """Formats the game analysis for display."""
     lines = [
         "--- Nim Game Analysis ---",
         f"Game State: {state}",
